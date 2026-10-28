@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block page %}dashboard{% endblock %}
+{% block content %}
+<section class="cards">
+  <div class="card"><span class="label">Total packets</span><b id="c-total">0</b></div>
+  <div class="card"><span class="label">TCP packets</span><b id="c-tcp">0</b></div>
+  <div class="card"><span class="label">Initial SYN packets</span><b id="c-syn">0</b></div>
+  <div class="card"><span class="label">Unique source IPs</span><b id="c-src">0</b></div>
+  <div class="card"><span class="label">Suspicious windows</span><b id="c-susp" class="warn">0</b></div>
+  <div class="card"><span class="label">Monitoring status</span><b id="c-status">STOPPED</b>
+    <small id="c-sub">idle</small></div>
+</section>
+
+<section class="panel">
+  <h2>Monitoring controls</h2>
+  <div class="form-row">
+    <label>Mode
+      <select id="f-mode">
+        <option value="simulation">Simulation (safe demo)</option>
+        <option value="live">Live capture (needs permissions)</option>
+      </select></label>
+    <label>Interface (live only)
+      <input id="f-iface" list="iface-list" placeholder="default interface">
+      <datalist id="iface-list"></datalist></label>
+    <label>Window (seconds)<input id="f-window" type="number" min="1" max="3600" value="{{ defaults.DEFAULT_WINDOW_SECONDS }}"></label>
+    <label>Total SYN threshold<input id="f-thr" type="number" min="1" value="{{ defaults.DEFAULT_SYN_THRESHOLD }}"></label>
+    <label>Per-source threshold<input id="f-per" type="number" min="1" value="{{ defaults.DEFAULT_PER_SOURCE_THRESHOLD }}"></label>
+    <div class="btns">
+      <button id="btn-start" class="btn green">Start</button>
+      <button id="btn-stop" class="btn red">Stop</button>
+    </div>
+  </div>
+  <p id="err-box" class="errbox" hidden></p>
+</section>
+
+<section class="grid2">
+  <div class="panel"><h2>Traffic over time (packets / window)</h2><canvas id="chart-traffic" height="140"></canvas></div>
+  <div class="panel"><h2>Initial SYN activity (per window)</h2><canvas id="chart-syn" height="140"></canvas></div>
+</section>
+
+<section class="grid2">
+  <div class="panel">
+    <h2>Recent alerts <a class="link" href="/alerts">view all</a></h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Time</th><th>Severity</th><th>SYNs</th><th>Threshold</th><th>Window</th><th>Sources</th></tr></thead>
+      <tbody id="alert-body"><tr><td colspan="6" class="muted">No alerts yet.</td></tr></tbody>
+    </table></div>
+  </div>
+  <div class="panel">
+    <h2>Source IP activity</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Source IP</th><th>SYN</th><th>TCP</th><th>Last seen</th></tr></thead>
+      <tbody id="src-body"><tr><td colspan="4" class="muted">No data yet.</td></tr></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Offline PCAP analysis</h2>
+  <div class="form-row">
+    <label>Capture file (.pcap / .pcapng)<input id="p-file" type="file" accept=".pcap,.pcapng,.cap"></label>
+    <label>Window (s)<input id="p-window" type="number" min="1" value="{{ defaults.DEFAULT_WINDOW_SECONDS }}"></label>
+    <label>Total threshold<input id="p-thr" type="number" min="1" value="{{ defaults.DEFAULT_SYN_THRESHOLD }}"></label>
+    <label>Per-source threshold<input id="p-per" type="number" min="1" value="{{ defaults.DEFAULT_PER_SOURCE_THRESHOLD }}"></label>
+    <div class="btns"><button id="btn-pcap" class="btn blue">Analyze</button></div>
+  </div>
+  <p class="muted">The file is only read and analysed. Nothing in it is executed or sent to the network.</p>
+  <div id="pcap-result"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+{% endblock %}

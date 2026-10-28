@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block page %}reports{% endblock %}
+{% block content %}
+<section class="panel">
+  <h2>Monitoring sessions</h2>
+  <div class="btns"><a class="btn blue" href="/api/reports/export">Export CSV report</a></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ID</th><th>Mode</th><th>Source</th><th>Started</th><th>Ended</th><th>Window</th>
+      <th>Thresholds</th><th>Packets</th><th>SYN</th><th>Suspicious</th><th>Status</th></tr></thead>
+    <tbody id="sess-body"></tbody>
+  </table></div>
+</section>
+<section class="panel">
+  <h2>Window history</h2>
+  <label class="inline"><input type="checkbox" id="only-susp"> Suspicious windows only</label>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Session</th><th>Start</th><th>End</th><th>TCP</th><th>SYN</th><th>Sources</th>
+      <th>Status</th><th>Severity</th><th>Top sources</th></tr></thead>
+    <tbody id="win-body"></tbody>
+  </table></div>
+</section>
+{% endblock %}

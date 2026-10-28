@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page %}alerts{% endblock %}
+{% block content %}
+<section class="panel">
+  <h2>Detection alerts</h2>
+  <div class="form-row">
+    <label class="inline"><input type="checkbox" id="show-cleared"> Show cleared alerts</label>
+    <div class="btns"><button id="btn-clear-all" class="btn red">Clear all from display</button></div>
+  </div>
+  <p class="muted">Acknowledge or clear only changes what is displayed. All records stay in the database and CSV report.
+    Consecutive suspicious windows are merged into one alert (see "Windows").</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Created</th><th>Severity</th><th>Peak SYNs</th><th>Threshold</th><th>Window</th>
+      <th>Windows</th><th>Top sources</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody id="alerts-body"></tbody>
+  </table></div>
+</section>
+{% endblock %}

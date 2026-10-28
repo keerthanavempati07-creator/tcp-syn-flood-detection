@@ -1,0 +1,12 @@
+2026-10-28 10:59:25,086 WARNING syn_monitor.alerts: ALERT #1 MEDIUM: Suspicious SYN activity: 212 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 10:59:55,209 WARNING syn_monitor.alerts: ALERT #2 MEDIUM: Suspicious SYN activity: 212 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:00:25,129 WARNING syn_monitor.alerts: ALERT #3 MEDIUM: Suspicious SYN activity: 215 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:00:55,043 WARNING syn_monitor.alerts: ALERT #4 MEDIUM: Suspicious SYN activity: 221 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:01:25,109 WARNING syn_monitor.alerts: ALERT #5 MEDIUM: Suspicious SYN activity: 223 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:01:55,242 WARNING syn_monitor.alerts: ALERT #6 MEDIUM: Suspicious SYN activity: 221 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:02:25,084 WARNING syn_monitor.alerts: ALERT #7 MEDIUM: Suspicious SYN activity: 214 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:02:55,151 WARNING syn_monitor.alerts: ALERT #8 MEDIUM: Suspicious SYN activity: 212 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:03:25,058 WARNING syn_monitor.alerts: ALERT #9 MEDIUM: Suspicious SYN activity: 215 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:03:55,132 WARNING syn_monitor.alerts: ALERT #10 MEDIUM: Suspicious SYN activity: 222 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:04:24,244 WARNING syn_monitor.alerts: ALERT #11 MEDIUM: Suspicious SYN activity: 190 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.
+2026-10-28 11:07:17,995 WARNING syn_monitor.alerts: ALERT #12 MEDIUM: Suspicious SYN activity: 206 initial SYN packets in 5s (threshold 100). This is NOT a confirmed attack - verify with Wireshark/logs.

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SYN Flood Monitor{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-page="{% block page %}{% endblock %}">
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> TCP SYN Flood Detection &amp; Monitoring</div>
+    <nav>
+      <a href="/" class="{% if request.path == '/' %}active{% endif %}">Dashboard</a>
+      <a href="/alerts" class="{% if request.path == '/alerts' %}active{% endif %}">Alerts</a>
+      <a href="/reports" class="{% if request.path == '/reports' %}active{% endif %}">Reports</a>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="notice">Monitor only networks you are authorised to monitor. High SYN activity is
+      <b>suspicious</b>, not proof of an attack &mdash; always verify (e.g. with Wireshark).</div>
+    <p id="api-error" class="errbox" role="alert" hidden></p>
+    {% block content %}{% endblock %}
+  </main>
+  <div id="toast" class="toast"></div>
+  {% block scripts %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
